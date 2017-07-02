@@ -13,7 +13,7 @@ constructor(props){
 super(props);
 this.state={allplanets:[]}
 }
-  
+ //Render the list of planets with the font size increasing according to the log value of it's population 
  renderplanets() {
          let size;
          const planets = this.props.planets.map((planet) => {
@@ -27,7 +27,7 @@ this.state={allplanets:[]}
      })
      return planets;
     }
-
+// Fetch the initial list of all planets after initial mount
 componentDidMount() {
 
     let planet_array = [];
@@ -57,7 +57,7 @@ componentDidMount() {
         });
     }
 }
-
+// on each keypress initiate a search and call the action creator to set the new array elements.
 changehandler = (e) => {
     const base_url = "https://swapi.co/api/";
     const search_url = `${base_url}planets/?search=${e.target.value}`;
@@ -80,7 +80,7 @@ changehandler = (e) => {
         })
     }
 }
-
+//Conditionally render either the loading screen or the results page.
 render() {
 if(this.props.planets.length===0){
 return(

@@ -8,7 +8,7 @@ constructor(props){
 super(props);
 this.state={username:'',password:''};
 }
-
+//Make an ajax call to fetch the users list according to the text entered in the input
 submithandler=(event)=>{
 event.preventDefault();
 const base_url = "https://swapi.co/api/";
@@ -22,7 +22,6 @@ const request = axios.get(search_url);
 		this.setState({username:'',password:''});
 		}
         for (let i = 0; i < response.data.results.length; i++) {
-		console.log(i);
             if (response.data.results[i].name === this.state.username) {
 
                 if (response.data.results[i].birth_year === this.state.password) {
@@ -43,7 +42,7 @@ const request = axios.get(search_url);
 	document.location.reload();
 	})
   }
-
+//controlled component implementation to set the state
 userchangehandler=event=>{
 this.setState({username:event.target.value});
 }
